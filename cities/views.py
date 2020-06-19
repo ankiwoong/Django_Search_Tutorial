@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView, ListView
+from django.db.models import Q  # new
 
 from .models import City
 
@@ -13,5 +14,5 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):  # new
         return City.objects.filter(
-            Q(name__icontains="Boston") | Q(state__icontains="NY")
+            Q(name__icontains="ANDORRA") | Q(state__icontains="AD")
         )
