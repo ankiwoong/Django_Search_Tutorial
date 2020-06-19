@@ -12,5 +12,6 @@ class SearchResultsView(ListView):
     template_name = "search_results.html"
 
     def get_queryset(self):  # new
-        return City.objects.filter(name__icontains="ANDORRA")
-
+        return City.objects.filter(
+            Q(name__icontains="Boston") | Q(state__icontains="NY")
+        )
