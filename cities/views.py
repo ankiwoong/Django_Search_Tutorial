@@ -10,5 +10,7 @@ class HomePageView(TemplateView):
 class SearchResultsView(ListView):
     model = City
     template_name = "search_results.html"
-    queryset = City.objects.filter(name__icontains="ANDORRA")  # new
+
+    def get_queryset(self):  # new
+        return City.objects.filter(name__icontains="ANDORRA")
 
